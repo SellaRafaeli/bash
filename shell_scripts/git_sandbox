@@ -26,3 +26,4 @@ function zz(){
   clear;
   echo "Life's short, party hard."
 }
+
