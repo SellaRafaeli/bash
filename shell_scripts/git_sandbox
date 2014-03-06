@@ -1,3 +1,5 @@
+# Copy this into your shell. 
+# Now, every time you run 'zz', your git sandbox will be recreated. 
 function zz(){
   d=practice_dir; r=project; cm='commit msg'
   #0. Setup Repo
