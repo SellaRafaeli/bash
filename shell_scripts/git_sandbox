@@ -11,19 +11,22 @@ function zz(){
 
   #2. branch foo with some commits
   git checkout master; f=foo; git checkout -b $f; touch $f; git add .;
-  for var in {5..8}; do echo "foo #$var" >> $f; git commit -am "$cm #$var ($f)"; done;
+  for var in {5..8}; do echo "$f #$var" >> $f; git commit -am "$cm #$var ($f)"; done;
 
   #3. branch bar with some commits  
   git checkout master; b=bar; git checkout -b $b; touch $b; git add .;
-  for var in {9..12}; do echo "bar #$var" >> $b; git commit -am "$cm #$var ($b)"; done;
+  for var in {9..12}; do echo "$b #$var" >> $b; git commit -am "$cm #$var ($b)"; done;
   
-
   #4. Some more commits on master 
   git checkout master;
   for var in {13..16}; do echo "master #$var" >> master_file; git commit -am "$cm #$var (master)"; done;
 
+  #5. new branch cleanly after master
+  git checkout master; m=maz; git checkout -b $m; touch $m; git add .; 
+  for var in {17..20}; do echo "$m #$var" >> $m; git commit -am "$m #$var (master)"; done;
+
   git checkout master;
   clear;
-  echo "Life's short, party hard."
+  echo "Life's short, party hard!"
 }
 
