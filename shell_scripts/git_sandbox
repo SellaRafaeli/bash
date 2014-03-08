@@ -27,6 +27,6 @@ function zz(){
 
   git checkout master;
   clear;
-  echo "Life's short, party hard!"
+  echo "Sella's Git Sandbox has been Reset. Let's Go Git."
 }
 
