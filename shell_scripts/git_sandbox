@@ -10,23 +10,22 @@ function zz(){
   for var in {1..4}; do echo "master #$var" >> master_file; git commit -am "$cm #$var (master)"; done;
 
   #2. branch foo with some commits
-  git checkout master; f=foo; git checkout -b $f; touch $f; git add .;
-  for var in {5..8}; do echo "$f #$var" >> $f; git commit -am "$cm #$var ($f)"; done;
+  git checkout master; branch=foo; filename=$branch'_file'; git checkout -b $branch; touch $filename; git add .;
+  for var in {5..8}; do echo "$branch #$var" >> $filename; git commit -am "$cm #$var ($branch)"; done;
 
   #3. branch bar with some commits  
-  git checkout master; b=bar; git checkout -b $b; touch $b; git add .;
-  for var in {9..12}; do echo "$b #$var" >> $b; git commit -am "$cm #$var ($b)"; done;
+  git checkout master; branch=bar; filename=$branch'_file'; git checkout -b $branch; touch $filename; git add .;
+  for var in {9..12}; do echo "$branch #$var" >> $filename; git commit -am "$cm #$var ($branch)"; done;
   
   #4. Some more commits on master 
   git checkout master;
   for var in {13..16}; do echo "master #$var" >> master_file; git commit -am "$cm #$var (master)"; done;
 
   #5. new branch cleanly after master
-  git checkout master; m=maz; git checkout -b $m; touch $m; git add .; 
-  for var in {17..20}; do echo "$m #$var" >> $m; git commit -am "$m #$var (master)"; done;
+  git checkout master; branch=maz; filename=$branch'_file'; git checkout -b $branch; touch $filename; git add .; 
+  for var in {17..20}; do echo "$branch #$var" >> $filename; git commit -am "$branch #$var (master)"; done;
 
   git checkout master;
   clear;
   echo "Sella's Git Sandbox has been Reset. Let's Go Git."
 }
-
