@@ -17,6 +17,9 @@ function zz(){
   git checkout master; branch=bar; filename=$branch'_file'; git checkout -b $branch; touch $filename; git add .;
   for var in {9..12}; do echo "$branch #$var" >> $filename; git commit -am "$cm #$var ($branch)"; done;
   
+  #3.5 conflict with master
+  git checkout master; git checkout -b confl; echo "Red Red Red" >> master_file; git commit -am "Red Red Red!";
+
   #4. Some more commits on master 
   git checkout master;
   for var in {13..16}; do echo "master #$var" >> master_file; git commit -am "$cm #$var (master)"; done;
@@ -24,7 +27,10 @@ function zz(){
   #5. new branch cleanly after master
   git checkout master; branch=maz; filename=$branch'_file'; git checkout -b $branch; touch $filename; git add .; 
   for var in {17..20}; do echo "$branch #$var" >> $filename; git commit -am "$branch #$var (master)"; done;
+    
+  
 
+  # Last: go back to master
   git checkout master;
   clear;
   echo "Sella's Git Sandbox has been Reset. Let's Go Git."
